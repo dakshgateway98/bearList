@@ -32,6 +32,7 @@ class ListBear extends Component {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
 
+    
     this.setState(
       {
         currentPage: selectedPage,
@@ -56,21 +57,28 @@ class ListBear extends Component {
           this.state.offset,
           this.state.offset + this.state.perPage
         );
-        // const postData = slice.map(pd => <React.Fragment>
-        //     <p>{pd.title}</p>
-        //     <img src={pd.thumbnailUrl} alt=""/>
-        // </React.Fragment>)
+       
 
         await this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
           listOfBears,
         });
-
+        
         this.setState({
           loading: false,
         });
+
+        
+      })
+      
+      .catch((err) => {
+        this.setState({
+          bearErr:err
+        })
+        console.error(err);
       });
-    this.state.listOfBears.sort((a, b) =>
+      
+      this.state.listOfBears.sort((a, b) =>
       a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
     );
   };
