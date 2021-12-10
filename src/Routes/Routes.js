@@ -18,7 +18,7 @@ class Routes extends Component {
           <div class="container">
             <div class="row">
               <div class="col-s-4">
-                <h1 class="push-left">Bears </h1>
+                <h1 class="push-left">Bears List Data</h1>
               </div>
               <div class="offset-s-4 col-s-4"></div>
             </div>
